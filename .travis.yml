@@ -10,11 +10,11 @@ before_install:
   - cp CICD/ssh_config ~/.ssh/
 
 script:
-  - docker build -t 1again/proxy_pool -f Docker/Dockerfile .
+  - docker build -t cyetstar/proxy-pool -f Docker/Dockerfile .
   
 after_success:
-  - echo $DOCKER_1AGAIN_PASSWORD | docker login -u 1again --password-stdin
-  - docker push 1again/proxy_pool
+  - echo $DOCKER_1AGAIN_PASSWORD | docker login -u cyetstar --password-stdin
+  - docker push cyetstar/proxy-pool
 
 deploy:
   provider: script

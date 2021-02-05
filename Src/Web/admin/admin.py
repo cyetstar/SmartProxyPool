@@ -18,6 +18,8 @@ from flask_admin import AdminIndexView, helpers, expose
 
 import flask_admin
 
+from Config import ConfigManager
+
 def init_base_data(*args):
     create_roles(*args)
     create_admin_user(*args)
@@ -31,12 +33,14 @@ def create_roles(user_datastore, app):
 
 def create_admin_user(user_datastore, app):
     with app.app_context():    
-        if user_datastore.get_user("admin"):
-            pass
-        else:
-            user_role = user_datastore.find_role(role='user')
-            super_user_role = user_datastore.find_role(role='superuser')
-            user_datastore.create_user(name='admin', email='admin', password=hash_password('admin'), roles=[user_role, super_user_role])
+        user = user_datastore.get_user("admin")
+        if user:
+            user_datastore.delete_user(user)
+        user_role = user_datastore.find_role(role='user')
+        super_user_role = user_datastore.find_role(role='superuser')
+        name = ConfigManager.base_config.setting.get("username")
+        password = ConfigManager.base_config.setting.get("password")
+        user_datastore.create_user(name=name, email='admin', password=hash_password(password), roles=[user_role, super_user_role])
 
 def init_security(user_datastore, app, admin):
     security = Security(app, user_datastore, login_form=LoginForm)

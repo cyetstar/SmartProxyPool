@@ -82,7 +82,7 @@ class ProxyFetch(object):
 
         now = int(time.time())
         elapsed_time = int(now - start_time)
-
+        
         next_fetch_time = now + (fetcher["interval"] * 60)
 
         data = {

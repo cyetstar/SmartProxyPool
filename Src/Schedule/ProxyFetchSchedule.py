@@ -18,7 +18,7 @@ from Log.LogManager import log
 from Config import ConfigManager
 
 class ProxyFetchSchedule(ProxySchedule):
-    rightnow = False
+    rightnow = True
 
     def __init__(self, **kwargs):
         super(ProxyFetchSchedule, self).__init__(**kwargs)

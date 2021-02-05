@@ -3,7 +3,8 @@ Werkzeug==0.15.3
 Flask==1.0.2
 requests==2.20.0
 lxml==4.3.3
-gevent==1.4.0
+gevent==21.1.2
+greenlet==1.0.0
 Flask-RESTful==0.3.6
 
 ipip-datx==0.4.0

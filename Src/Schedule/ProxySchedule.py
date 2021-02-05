@@ -57,7 +57,6 @@ class ProxySchedule(BlockingScheduler):
                 next_run_time=now
             else:
                 next_run_time=None
-
             self.add_job(handler, "interval", id=name, minutes=value, next_run_time=next_run_time)
 
         self.start()

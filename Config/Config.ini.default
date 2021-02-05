@@ -1,11 +1,15 @@
 [DB]
 ; Configure the database information
 db_type = MONGODB
-db_host = proxy_pool_db
+db_host = mongo
 db_port = 27017
 db_name = proxy
 ; user = your_username (Only Mongodb)
 ; pass = your_password
+
+[ADMIN]
+username = admin
+password = admin
 
 [LOG]
 log_level = INFO

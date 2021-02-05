@@ -17,10 +17,12 @@ from Manager.ProxyFetch import ProxyFetch
 
 from Schedule.ProxyVerifySchedule import ProxyVerifySchedule
 from Schedule.ProxyFetchSchedule import ProxyFetchSchedule
+from Schedule.ProxyCleanSchedule import ProxyCleanSchedule
 
 TASK_LIST = {
     "ProxyVerifySchedule": ProxyVerifySchedule,
     "ProxyFetchSchedule": ProxyFetchSchedule,
+    # "ProxyCleanSchedule": ProxyCleanSchedule,
     "ForwardHttp": ForwardHttp,
 }
 
@@ -58,12 +60,10 @@ def register_signal():
 def main(test=False):
     show_time()
     register_signal()
-
     LogManager.init()
-
     start_task()
-
     WebManager.run()
+
 
 if __name__ == '__main__':
     main()

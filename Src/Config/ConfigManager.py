@@ -179,7 +179,7 @@ class FetcherConfig(DBConfig):
 
 base_config = BaseConfig()
 setting_config = SettingConfig()
-# fetcher_config = FetcherConfig()
+fetcher_config = FetcherConfig()
 
 if __name__ == '__main__':
     pass
